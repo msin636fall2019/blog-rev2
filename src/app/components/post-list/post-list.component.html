@@ -1,0 +1,20 @@
+<div class="mt-2" *ngIf="postService.posts">
+    <div class="row">
+        <div class="col-12 col-lg-4 col-sm-12 col-md-6 " *ngFor="let post of postService.posts">
+            <div class="card shadow my-2">
+                <div class="card-header text-center">
+                    <h3>{{ post.title }}</h3>
+                    <small class="text-center">{{ post.date | date: "medium" }}</small>
+                </div>
+                <div class="card-body">
+                    {{ post.body | slice:0:250}} ...
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary mr-2" routerLink="/post-detail/{{post.id}}">MORE</button>
+                    <button class="btn btn-info mr-2"routerLink="/edit/{{post.id}}">EDIT</button>
+                    <button class="btn btn-danger" (click)="deletePost(post)">DELTE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="card shadow my-2">
+    <div class="card-header text-center">
+        <h3 class=" d-inline">{{ post.title }}</h3>
+        <div class="float-right d-inline">
+            <button class="btn btn-info mr-2" routerLink="/edit/{{post.id}}">EDIT</button>
+            <button class="btn btn-danger" (click)="deletePost(post)">DELTE</button>
+        </div>
+        <br>
+        <small class="text-center">{{ post.date | date: "medium" }}</small>
+    </div>
+    <div class="card-body">
+        {{ post.body }}
+    </div>
+</div>
